@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const images = [
   'image.webp',
-  'image2.webp',
-  'image.webp',
-  'image3.webp',
-  'image4.webp'
+  // 'image1.jpeg',
+  'image3.jpeg',
+  'image4.png',
+  'image5.jpeg'
 ];
 
 const texts = [
   'Olga of Kiev',
-  'Warrior Queen',
+  // 'Warrior Queen',
   'Diplomatic Ruler',
   'Christian Convert',
   'Historical Icon'
@@ -20,6 +21,8 @@ const texts = [
 const HomePage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -84,6 +87,7 @@ const HomePage = () => {
             {texts[currentImageIndex]}
           </motion.p>
         </AnimatePresence>
+        <button onClick={()=> navigate('/stats')} className='bg-[#bba9a9] p-2 rounded mt-3'>Move Ahead</button>
       </div>
     </div>
   );
